@@ -1,5 +1,6 @@
 '''Computing and storing daily and monthly employee wage for multiple companies which are having their own wage,
- number of working days and working hours per month'''
+   number of working days and working hours per month
+   Getting total wage of employee when queried by company name'''
 import random
 
 
@@ -52,10 +53,11 @@ class EmployeeWage:
 
 
 # creating object
-employee1 = EmployeeWage('Tata',20,20,100)
+employee1 = EmployeeWage('tata',20,20,100)
 employee1.calculate_employee_wage()
-employee2 = EmployeeWage('Sinclair',25,30,100)
+employee2 = EmployeeWage('sinclair',25,30,100)
 employee2.calculate_employee_wage()
+
 
 employee_wage_details = []
 employee_wage_details.append(employee1)
@@ -63,3 +65,18 @@ employee_wage_details.append(employee2)
 
 for i in range(len(employee_wage_details)):
     print(employee_wage_details[i])
+
+def query_salary_by_company_name():
+    company_name = input("enter the company name : ")
+    for i in range(len(employee_wage_details)):
+      if company_name.lower() == (employee_wage_details[i].company):
+          print("Monthly salary : "+str(employee_wage_details[i].monthly_emp_wage))
+          break
+      else:
+          print("Entered company name not found")
+
+query_salary_by_company_name()
+
+
+
+
