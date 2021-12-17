@@ -5,19 +5,26 @@ import random
 
 class EmployeeWage:
 
+    # static variables
     FULL_TIME = 8
     PART_TIME = 4
     ABSENT = 0
 
-    # passing parameters to function
-    def calculate_employee_wage(self, company, wage_per_hour, monthly_working_days, max_hours_per_month):
-        """" Calculating employee wage with parameters passed"""
+    def __init__(self, *params):
+        # initializing values to instance variables
+        self.company = params[0]
+        self.wage_per_hour = params[1]
+        self.monthly_working_days = params[2]
+        self.max_hours_per_month = params[3]
+
+    def calculate_employee_wage(self):
+        """" Calculating employee wage """
         monthly_emp_wage = 0
         emp_working_days = 0
         emp_working_hrs = 0
 
         # loop runs till monthly working days 20 or monthly working hrs 100 is reached
-        while emp_working_days < monthly_working_days and emp_working_hrs <= max_hours_per_month:
+        while emp_working_days < self.monthly_working_days and emp_working_hrs <= self.max_hours_per_month:
             emp_working_days += 1
 
             # generating random number
@@ -34,15 +41,16 @@ class EmployeeWage:
             if emp_working_hrs > 100:
                 emp_working_hrs -= emp_hrs
                 break
-            print('Day:', emp_working_days, 'Hrs Present:', emp_hrs)
-            monthly_emp_wage = wage_per_hour * emp_working_hrs
+            self.monthly_emp_wage = self.wage_per_hour * emp_working_hrs
 
-        print('Total working hours:', emp_working_hrs)
-        print('Monthly employee wage for company',company,"is", monthly_emp_wage)
+    def __str__(self):
+        return "(Company Name: "+self.company +", Monthly Salary: "+ str(self.monthly_emp_wage)+")"
 
 
-# creating objects and passing values to method
-employee1 = EmployeeWage()
-employee1.calculate_employee_wage('Tata',20,20,100)
-employee2 = EmployeeWage()
-employee2.calculate_employee_wage('Sinclair',25,30,100)
+# creating object
+employee1 = EmployeeWage('Tata',20,20,100)
+employee1.calculate_employee_wage()
+print(employee1)
+employee2 = EmployeeWage('Sinclair',25,30,100)
+employee2.calculate_employee_wage()
+print(employee2)
