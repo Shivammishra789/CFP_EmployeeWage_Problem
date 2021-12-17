@@ -1,4 +1,4 @@
-'''Computing employee wage for multiple companies which are having their own wage,
+'''Computing and storing employee wage for multiple companies which are having their own wage,
  number of working days and working hours per month'''
 import random
 
@@ -50,7 +50,12 @@ class EmployeeWage:
 # creating object
 employee1 = EmployeeWage('Tata',20,20,100)
 employee1.calculate_employee_wage()
-print(employee1)
 employee2 = EmployeeWage('Sinclair',25,30,100)
 employee2.calculate_employee_wage()
-print(employee2)
+
+employee_wage_details = []
+employee_wage_details.append(employee1)
+employee_wage_details.append(employee2)
+
+for i in range(len(employee_wage_details)):
+    print(employee_wage_details[i])
