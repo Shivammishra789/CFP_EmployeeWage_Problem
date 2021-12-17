@@ -1,4 +1,4 @@
-'''Computing and storing employee wage for multiple companies which are having their own wage,
+'''Computing and storing daily and monthly employee wage for multiple companies which are having their own wage,
  number of working days and working hours per month'''
 import random
 
@@ -23,6 +23,7 @@ class EmployeeWage:
         emp_working_days = 0
         emp_working_hrs = 0
 
+        self.daily_wage_list = []
         # loop runs till monthly working days 20 or monthly working hrs 100 is reached
         while emp_working_days < self.monthly_working_days and emp_working_hrs <= self.max_hours_per_month:
             emp_working_days += 1
@@ -41,10 +42,13 @@ class EmployeeWage:
             if emp_working_hrs > 100:
                 emp_working_hrs -= emp_hrs
                 break
+            daily_wage = self.wage_per_hour * emp_hrs
             self.monthly_emp_wage = self.wage_per_hour * emp_working_hrs
 
+            self.daily_wage_list.append(daily_wage)
+
     def __str__(self):
-        return "(Company Name: "+self.company +", Monthly Salary: "+ str(self.monthly_emp_wage)+")"
+        return "(Company Name: "+self.company +", DailyWage:"+str(self.daily_wage_list) + ", Monthly Salary: "+ str(self.monthly_emp_wage)+")"
 
 
 # creating object
