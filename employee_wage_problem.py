@@ -4,10 +4,8 @@
 @desc: Employee wage is calculated
 '''
 
-
 import random
 from company import Company
-
 
 class EmployeeWage(Company):
     '''
