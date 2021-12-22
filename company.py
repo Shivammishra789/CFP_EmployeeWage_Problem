@@ -4,7 +4,6 @@
 @desc: Contains company class and functions to get employee wage details
 '''
 
-
 class Company:
     """initializing values to instance variables company, wage_per_hour, monthly_working_days, max_hours_per_month"""
     employee_wage_details = []
